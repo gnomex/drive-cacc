@@ -6,7 +6,7 @@ gem 'sinatra', '1.3.3'
 gem 'mongoid', '3.0.5'
 gem 'unicorn', '4.3.1'
 
-group :development, :test do
+group :development do
 	gem 'sinatra-reloader', '1.0', require: 'sinatra/reloader'
 	gem 'pry'
 	gem 'racksh'

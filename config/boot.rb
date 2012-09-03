@@ -1,8 +1,12 @@
-require "bundler"
-Bundler.setup
-Bundler.require(:default, :console, ENV.fetch("RACK_ENV", :development))
-Wirb.start
-Hirb.enable
+# require "bundler"
+require "bundler/setup"
+Bundler.require(:default)
+
+if Sinatra::Base.development?
+	Bundler.require(:console, :development, ENV.fetch("RACK_ENV", :development))
+	Wirb.start
+	Hirb.enable
+end
 
 require File.expand_path("../environment", __FILE__)
 
