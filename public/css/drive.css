@@ -1,0 +1,5 @@
+td.file {
+  padding-left: 30px;
+}
+
+td.file-zip { background: #FFF url(../img/icons/icon-zip.png) no-repeat 8px center; }
