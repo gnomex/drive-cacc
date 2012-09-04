@@ -15,7 +15,7 @@ task :populate do
     Archive.create(
       filename: "#{type} de #{discipline}",
       description: Forgery(:lorem_ipsum).words(12),
-      path: "/tmp/prova_bd.rar",
+      path: "/tmp/file.#{%w[pdf jpg odt zip doc docx].sample}",
       filesize: Forgery(:basic).number(at_least: 1234, at_most: 887261),
       year: [2009, 2010, 2011, 2012].sample,
       discipline: discipline,

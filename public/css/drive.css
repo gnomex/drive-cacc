@@ -3,3 +3,8 @@ td.file {
 }
 
 td.file-zip { background: #FFF url(../img/icons/icon-zip.png) no-repeat 8px center; }
+td.file-pdf { background: #FFF url(../img/icons/icon-pdf.png) no-repeat 8px center; }
+td.file-rar { background: #FFF url(../img/icons/icon-rar.png) no-repeat 8px center; }
+td.file-odt { background: #FFF url(../img/icons/icon-odt.png) no-repeat 8px center; }
+td.file-jpg, td.file-png { background: #FFF url(../img/icons/icon-jpg.png) no-repeat 8px center; }
+td.file-doc, td.file-docx { background: #FFF url(../img/icons/icon-doc.png) no-repeat 8px center; }

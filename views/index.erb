@@ -2,7 +2,7 @@
   <table class="table table-bordered">
   <% @archives.each do |archive| %>
     <tr>
-      <td class="file file-zip"><a href="/download/<%= archive.id %>"><%= archive.name %></a></td>
+      <td class="file file-<%= archive.file_type %>"><a href="/download/<%= archive.id %>"><%= archive.name %></a></td>
       <td><%= archive.teacher %></td>
       <td><%= archive.size_in_mb %></td>
       <td><%= archive.downloads %></td>

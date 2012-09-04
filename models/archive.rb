@@ -21,4 +21,12 @@ class Archive
     "%.2f" % (filesize/1024.0) + " MB"
   end
 
+  def file_type
+    path.split(".").last
+  end
+
+  def snake_case
+    filename.gsub!(/(.)([A-Z])/,'\1_\2').downcase!
+  end
+
 end
