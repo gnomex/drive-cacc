@@ -1,0 +1,68 @@
+<div class="container">
+	<legend>Upload de arquivo</legend>
+	<form class="form-horizontal" method="post" action="/upload" enctype="multipart/form-data">
+	  <div class="control-group">
+	    <label class="control-label" for="name">Nome</label>
+	    <div class="controls">
+	      <input type="text" name="name" id="name" placeholder="Nome para referência" class="input-xxlarge">
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+	    <label class="control-label" for="description">Descrição</label>
+	    <div class="controls">
+	      <textarea rows="4" name="description" id="description" class="input-xlarge" placeholder="Breve descrição do arquivo"></textarea>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+	    <label class="control-label" for="year">Ano do arquivo</label>
+	    <div class="controls">
+	      <select name="year" id="year" class="input-small">
+	      	<% Time.new.year.downto(2008) do |year| %>
+	      		<option value="<%= year %>"><%= year %></option>
+	      	<% end %>
+	      </select>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+	    <label class="control-label" for="discipline">Disciplina</label>
+	    <div class="controls">
+	      <select name="discipline" id="discipline" class="input-xlarge">
+	      	<% @disciplines.each do |discipline| %>
+	      		<option value="<%= discipline.id %>"><%= discipline.name %></option>
+	      	<% end %>
+	      </select>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+	    <label class="control-label" for="teacher">Professor</label>
+	    <div class="controls">
+	      <select name="teacher" id="teacher" class="input-xlarge">
+	      	<% @teachers.each do |teacher| %>
+	      		<option value="<%= teacher.id %>"><%= teacher.name %></option>
+	      	<% end %>
+	      </select>
+	    </div>
+	  </div>
+
+	  <div class="control-group">
+	    <label class="control-label" for="file">Arquivo</label>
+	    <div class="controls">
+				  <input id="file" type="file" name="file" style="display:none">
+					<div class="input-append">
+					   <input id="file-path" class="input-large" type="text">
+					   <a class="btn" onclick="$('input[id=file]').click();">Escolher</a>
+					</div>
+	    </div>
+	  </div>
+
+	  <div class="form-actions">
+		  <button type="submit" class="btn btn-primary">Enviar</button>
+		  <button type="button" class="btn">Cancelar</button>
+		</div>
+
+	</form>
+</div>

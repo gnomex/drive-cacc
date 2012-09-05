@@ -71,5 +71,10 @@
     <script src="/js/bootstrap-carousel.js"></script>
     <script src="/js/bootstrap-typeahead.js"></script>
     -->
+    <script>
+      $('input[id=file]').change(function() {
+         $('#file-path').val($(this).val());
+      });
+    </script>
   </body>
 </html>
