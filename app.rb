@@ -10,8 +10,9 @@ helpers do
   end
 
   def authorized?
+    credentials = YAML.load_file('config/config.yml')
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'admin']
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [credentials['auth']['user'], credentials['auth']['pass']]
   end
 end
 

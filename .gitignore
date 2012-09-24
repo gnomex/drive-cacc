@@ -2,3 +2,5 @@
 config/deploy.rb
 Capfile
 config/mongoid.yml
+config/config.yml
+
