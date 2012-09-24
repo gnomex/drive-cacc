@@ -2,6 +2,8 @@
 require File.expand_path(File.join(%w[config boot]), File.dirname(__FILE__))
 require "forgery"
 
+task :default => :spec
+
 TYPES = %w[Prova Trabalho Lista Livro Apostila Slides]
 # DISCIPLINES = ["Banco de Dados", "Engenharia de Software", "Compiladores", "Física", "Geometria Analítica", "Formação Empreendedora", "Computação Gráfica", "Processamento de Imagem", "Introdução a Arquitetura de Computadores"]
 # TEACHERS = ["Fabiana Frata", "Roberto Gil Brasil", "Jorge Habib", "Antonio Massao (Shiro)", "Ricardo Krauskopf"]
