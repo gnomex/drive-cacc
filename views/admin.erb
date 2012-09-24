@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+	  <div class="span6">
+	  	<h4>Disciplinas</h4>
+	  	<table class="table table-bordered" id="table-disciplines">
+  			<tbody>
+  				<% @disciplines.each do |discipline| %>
+	  				<tr id="<%= discipline.id %>">
+	  			    <td><%= discipline.name %></td>
+	  			    <td style="text-align: center; width: 10%"><button class="btn btn-mini btn-danger btn-rm-discipline" type="button">Deletar</button></td>
+	  			  </tr>
+  				<% end %>
+  			</tbody>
+			</table>
+			<div class="input-append">
+			  <input class="span4" id="new-discipline" size="16" type="text"><button class="btn" id="btn-add-discipline" type="button">Adicionar</button>
+			</div>
+	  </div>
+	  <div class="span6">
+	  <h4>Professores</h4>
+	  	<table class="table table-bordered" id="table-teachers">
+	  		<tbody>
+	  			<% @teachers.each do |teacher| %>
+			  		<tr id="<%= teacher.id %>">
+			  			<td><%= teacher.name %></td>
+			  			<td style="text-align: center; width: 10%"><button class="btn btn-mini btn-danger btn-rm-teacher" type="button">Deletar</button></td>
+			  		</tr>
+	  			<% end %>
+	  		</tbody>
+			</table>
+			<div class="input-append">
+			  <input class="span4" id="new-teacher" size="16" type="text"><button class="btn" id="btn-add-teacher" type="button">Adicionar</button>
+			</div>
+	  </div>
+	</div>
+</div>

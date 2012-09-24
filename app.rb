@@ -1,6 +1,20 @@
 # coding: utf-8
 require "./config/boot"
 
+helpers do
+  def protected!
+    unless authorized?
+      response['WWW-Authenticate'] = %(Basic realm="Give your credentials")
+      throw(:halt, [401, "Not authorized!\n"])
+    end
+  end
+
+  def authorized?
+    @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'admin']
+  end
+end
+
 get '/' do
   @archives = Archive.all
   erb :index
@@ -43,4 +57,56 @@ post '/upload' do
   @archive.save
 
   redirect '/'
+end
+
+#
+# Protected areas
+
+get '/admin' do
+  protected!
+  @disciplines = Discipline.asc(:name)
+  @teachers = Teacher.asc(:name)
+  erb :admin
+end
+
+# Creating new discipline
+post '/discipline' do
+  protected!
+
+  discipline = Discipline.create(name: params[:name])
+
+  content_type :json
+  discipline.to_json
+end
+
+# Remove a discipline
+delete '/discipline' do
+  protected!
+
+  discipline = Discipline.find(params[:id])
+  discipline.destroy
+
+  content_type :json
+  discipline.to_json
+end
+
+# Creating new teacher
+post '/teacher' do
+  protected!
+
+  teacher = Teacher.create(name: params[:name])
+
+  content_type :json
+  teacher.to_json
+end
+
+# Remove a teacher
+delete '/teacher' do
+  protected!
+
+  teacher = Teacher.find(params[:id])
+  teacher.destroy
+
+  content_type :json
+  teacher.to_json
 end

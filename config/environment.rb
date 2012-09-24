@@ -14,4 +14,6 @@ set :dump_errors, Sinatra::Base.development?
 
 set :raise_errors, Sinatra::Base.development?
 
-require "sinatra/reloader" if Sinatra::Base.development?
+if Sinatra::Base.development?
+	require "sinatra/reloader"
+end
